@@ -302,7 +302,13 @@ function renderMd(t){
 function send(){
   var inp=document.getElementById('cinput');
   var text=inp.value.trim();if(!text||S.busy)return;
-  inp.value='';resize(inp);addMsg('user',text);callAPI(text);
+  inp.value='';resize(inp);
+  // Detect word generation request
+  var lower=text.toLowerCase();
+  if(lower.indexOf('generar word')>-1||lower.indexOf('dame el word')>-1||lower.indexOf('word')>-1&&(lower.indexOf('generar')>-1||lower.indexOf('descargar')>-1||lower.indexOf('exportar')>-1)){
+    addMsg('user',text);generateWord();return;
+  }
+  addMsg('user',text);callAPI(text);
 }
 function onKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
 function resize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,140)+'px';}
@@ -313,7 +319,7 @@ async function callAPI(userMsg){
   var ticker=cycleStatus();
   S.history.push({role:'user',content:userMsg});
   try{
-    var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:4000,system:SYSTEM,messages:S.history})});
+    var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:8000,system:SYSTEM,messages:S.history})});
     var data=await res.json();
     clearInterval(ticker);hideTyping();hideStatus();
     if(data.content&&data.content[0]&&data.content[0].text){
@@ -330,8 +336,7 @@ async function callAPI(userMsg){
 function checkWordOffer(reply){
   var r=reply.toLowerCase();
   var isDoc=(r.indexOf('# sistema')>-1||r.indexOf('por que existe este sistema')>-1)&&r.indexOf('en una sola frase')>-1;
-  if(isDoc&&!S.wordOffered){
-    S.wordOffered=true;
+  if(isDoc){
     setTimeout(function(){
       var msgs=document.getElementById('msgs');
       var row=document.createElement('div');row.className='mrow assistant';row.style.animation='none';row.style.opacity='1';
@@ -348,7 +353,7 @@ async function generateWord(){
   var prompt='Por favor genera el documento final completo en formato limpio y estructurado listo para Word. Incluye todas las secciones con el contenido completo que ya definimos. Usa encabezados ##, negritas y separadores ---. Que sea el documento final pulido.';
   S.history.push({role:'user',content:prompt});
   try{
-    var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:4000,system:SYSTEM,messages:S.history})});
+    var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:8000,system:SYSTEM,messages:S.history})});
     var data=await res.json();hideStatus();
     if(data.content&&data.content[0]&&data.content[0].text){var reply=data.content[0].text;S.history.push({role:'assistant',content:reply});exportToWord(reply);}
   }catch(e){hideStatus();}
