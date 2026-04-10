@@ -3,297 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Nueva Oportunidad — INDEI</title>
-<meta name="description" content="Construye tu sistema de diferenciación real. Instituto del Empresario Industrial.">
+<title>Nueva Oportunidad - INDEI</title>
 <link rel="icon" type="image/png" href="https://i.imgur.com/5WeN9KQ.png">
-<link rel="apple-touch-icon" href="https://i.imgur.com/5WeN9KQ.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --gold: #c9a84c;
-  --gold-light: #e8c97a;
-  --gold-dim: #8a6e2f;
-  --gold-bg: #1e1a0e;
-  --gold-border: #3a2a10;
-  --bg: #060606;
-  --header-bg: #100e08;
-  --card-bg: #0a0a0a;
-  --input-bg: #111111;
-  --border-dark: #1e1e1e;
-  --border-gold: rgba(201,168,76,0.25);
-  --text-light: #e8e8e8;
-  --text-muted: #888;
-  --text-dim: #555;
-  --green: #2d6a38;
-}
+:root{--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:#8a6e2f;--gold-bg:#1e1a0e;--gold-border:#3a2a10;--bg:#060606;--header-bg:#100e08;--border-gold:rgba(201,168,76,0.25);--text-light:#e8e8e8;--text-muted:#888;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text-light);font-size:14px;overflow:hidden;}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-light); font-size: 14px; overflow: hidden; }
+#landing{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:#f8f5ee;overflow:hidden;}
+#lc{position:absolute;inset:0;pointer-events:none;}
+.lbox{position:relative;z-index:2;width:460px;padding:50px 44px;background:#0a0a0a;border:1px solid rgba(201,168,76,0.3);border-radius:18px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 0 0 1px rgba(201,168,76,0.10),0 0 30px 6px rgba(201,168,76,0.15),0 0 80px 20px rgba(201,168,76,0.08),0 32px 80px rgba(0,0,0,0.55);animation:boxIn 0.7s cubic-bezier(0.22,1,0.36,1) forwards;}
+@keyframes boxIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.llogo{height:68px;object-fit:contain;margin-bottom:30px;}
+.lh1{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--text-light);line-height:1.2;margin-bottom:10px;letter-spacing:-0.02em;}
+.lh1 em{color:var(--gold);font-style:italic;}
+.lsub{font-size:13px;color:#666;line-height:1.7;margin-bottom:32px;max-width:340px;font-weight:300;}
+.lsub em{color:var(--gold);font-style:italic;font-weight:400;}
+.lsteps{display:flex;flex-direction:column;gap:7px;width:100%;margin-bottom:32px;}
+.lstep{display:flex;align-items:center;gap:11px;padding:9px 13px;background:rgba(201,168,76,0.035);border:0.5px solid rgba(201,168,76,0.1);border-radius:7px;text-align:left;}
+.sn{width:20px;height:20px;background:var(--gold);color:#1a1200;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;border-radius:50%;flex-shrink:0;}
+.sl{font-size:12px;color:#999;}
+.lbtn{width:100%;padding:13px;background:var(--gold);border:none;border-radius:8px;color:#1a1200;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.3px;transition:opacity 0.15s,transform 0.1s;margin-bottom:14px;}
+.lbtn:hover{opacity:0.9;transform:translateY(-1px);}
+.lnote{font-size:11px;color:#444;letter-spacing:0.3px;}
 
-/* ══ LANDING ══ */
-#landing {
-  position: fixed; inset: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: center;
-  background: #f8f5ee; overflow: hidden;
-}
-#landing-canvas { position: absolute; inset: 0; pointer-events: none; }
+#app{display:none;position:fixed;inset:0;flex-direction:column;background:var(--bg);}
+.ah{height:64px;background:var(--header-bg);border-bottom:0.5px solid #1a1a1a;display:flex;align-items:center;justify-content:space-between;padding:0 24px;flex-shrink:0;z-index:50;}
+.ahl{display:flex;align-items:center;gap:14px;}
+.alogo{height:40px;object-fit:contain;}
+.adiv{width:0.5px;height:24px;background:#2a2a2a;}
+.atitle{font-size:13px;color:#555;font-weight:400;letter-spacing:0.3px;}
+.atitle span{color:var(--gold);font-weight:500;}
+.ahr{display:flex;align-items:center;gap:16px;}
+.pt{display:flex;align-items:center;gap:6px;}
+.ptl{font-size:10px;color:#444;letter-spacing:1px;text-transform:uppercase;margin-right:4px;}
+.pd{width:28px;height:4px;background:#1a1a1a;border-radius:2px;transition:background 0.4s;}
+.pd.active{background:var(--gold);box-shadow:0 0 8px rgba(201,168,76,0.5);}
+.pd.done{background:var(--gold-dim);}
+.back-btn{display:none;align-items:center;gap:6px;background:transparent;border:0.5px solid #333;color:#666;font-size:11px;font-family:'Inter',sans-serif;padding:6px 12px;border-radius:6px;cursor:pointer;transition:all 0.15s;letter-spacing:0.3px;}
+.back-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+.back-btn svg{width:12px;height:12px;fill:currentColor;}
 
-.landing-box {
-  position: relative; z-index: 2;
-  width: 460px; padding: 50px 44px;
-  background: #0a0a0a;
-  border: 1px solid rgba(201,168,76,0.3);
-  border-radius: 18px;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  box-shadow: 0 0 0 1px rgba(201,168,76,0.10), 0 0 30px 6px rgba(201,168,76,0.15), 0 0 80px 20px rgba(201,168,76,0.08), 0 32px 80px rgba(0,0,0,0.55);
-  animation: boxIn 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
-}
-@keyframes boxIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.ab{flex:1;display:flex;flex-direction:column;overflow:hidden;max-width:860px;width:100%;margin:0 auto;padding:0 24px;}
+.msgs{flex:1;overflow-y:auto;padding:28px 0 20px;display:flex;flex-direction:column;gap:4px;scroll-behavior:smooth;}
+.msgs::-webkit-scrollbar{width:3px;}
+.msgs::-webkit-scrollbar-thumb{background:#2a2010;}
 
-.landing-logo { height: 68px; object-fit: contain; margin-bottom: 30px; }
+.wb{background:rgba(201,168,76,0.04);border:0.5px solid rgba(201,168,76,0.18);border-radius:10px;padding:22px 26px;margin-bottom:20px;}
+.wb h2{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--gold-light);margin-bottom:9px;}
+.wb p{font-size:13px;color:#888;line-height:1.7;}
+.wb p+p{margin-top:5px;}
+.wb strong{color:#bbb;font-weight:500;}
 
-.landing-headline {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px; font-weight: 700; color: var(--text-light);
-  line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.02em;
-}
-.landing-headline em { color: var(--gold); font-style: italic; }
+.upsec{display:flex;gap:11px;margin-bottom:11px;flex-wrap:wrap;}
+.upcard{flex:1;min-width:195px;border:0.5px dashed rgba(201,168,76,0.28);border-radius:10px;padding:18px 18px 16px;cursor:pointer;position:relative;background:rgba(201,168,76,0.02);transition:border-color 0.2s,background 0.2s;}
+.upcard:hover{border-color:rgba(201,168,76,0.52);background:rgba(201,168,76,0.04);}
+.upcard.done{border-color:rgba(45,106,56,0.55);border-style:solid;background:rgba(45,106,56,0.04);}
+.upcard input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.upi{font-size:19px;margin-bottom:7px;}
+.upt{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:0.3px;margin-bottom:3px;text-transform:uppercase;}
+.upd{font-size:11px;color:#555;line-height:1.5;}
+.ups{font-size:11px;color:#444;margin-top:7px;font-weight:500;}
+.upcard.done .ups{color:#4a9a5a;}
+.pbtn{width:100%;padding:12px;background:var(--gold);border:none;border-radius:8px;color:#1a1200;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.3px;transition:opacity 0.15s,transform 0.1s;display:none;margin-bottom:8px;}
+.pbtn:hover{opacity:0.9;transform:translateY(-1px);}
+.pbtn.show{display:block;}
 
-.landing-sub { font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 32px; max-width: 360px; font-weight: 300; }
-.landing-sub em { color: var(--gold); font-style: italic; font-weight: 400; }
+.sbar{display:none;align-items:center;gap:10px;padding:8px 0 4px;}
+.sbar.show{display:flex;}
+.spinner{width:14px;height:14px;border:2px solid #2a2010;border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;flex-shrink:0;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.stxt{font-size:12px;color:#666;font-style:italic;}
 
-.landing-steps { display: flex; flex-direction: column; gap: 7px; width: 100%; margin-bottom: 32px; }
+.mrow{display:flex;gap:10px;max-width:100%;animation:mIn 0.3s ease forwards;opacity:0;}
+.mrow.user{flex-direction:row-reverse;}
+@keyframes mIn{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:translateY(0);}}
+.mava{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;margin-top:5px;}
+.mava.ai{background:var(--gold);color:#1a1200;}
+.mava.me{background:#1e1e1e;color:#777;border:0.5px solid #2a2a2a;}
+.mbub{max-width:calc(100% - 46px);padding:11px 15px;font-size:13.5px;line-height:1.7;border-radius:10px;}
+.mrow.assistant .mbub{background:#111;border:0.5px solid #1e1e1e;color:var(--text-light);border-radius:2px 10px 10px 10px;}
+.mrow.user .mbub{background:var(--gold-bg);border:0.5px solid var(--gold-border);color:#ccc;border-radius:10px 2px 10px 10px;}
+.mbub h1{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--gold-light);margin:14px 0 5px;line-height:1.3;}
+.mbub h2{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--gold);margin:14px 0 5px;padding-bottom:4px;border-bottom:0.5px solid #2a2010;}
+.mbub h3{font-size:12px;font-weight:600;color:#bbb;margin:11px 0 3px;text-transform:uppercase;letter-spacing:0.5px;}
+.mbub p{margin:5px 0;}
+.mbub strong{color:#e0e0e0;font-weight:600;}
+.mbub em{color:#888;font-style:italic;}
+.mbub hr{border:none;border-top:0.5px solid #222;margin:12px 0;}
+.mbub ul,.mbub ol{padding-left:16px;margin:5px 0;}
+.mbub li{margin:3px 0;color:#bbb;}
+.mbub blockquote{border-left:2px solid var(--gold-dim);padding-left:11px;margin:9px 0;color:#777;font-style:italic;font-size:13px;}
+.mbub code{font-family:monospace;background:#1a1a1a;padding:2px 5px;font-size:12px;color:var(--gold);border-radius:3px;}
 
-.landing-step {
-  display: flex; align-items: center; gap: 11px;
-  padding: 9px 13px;
-  background: rgba(201,168,76,0.035);
-  border: 0.5px solid rgba(201,168,76,0.1);
-  border-radius: 7px; text-align: left;
-}
-.step-n {
-  width: 20px; height: 20px; background: var(--gold); color: #1a1200;
-  font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;
-  border-radius: 50%; flex-shrink: 0;
-}
-.step-label { font-size: 12px; color: #999; font-weight: 400; }
+.trow{display:flex;gap:10px;align-items:flex-start;}
+.tbub{background:#111;border:0.5px solid #1e1e1e;border-radius:2px 10px 10px 10px;padding:13px 16px;display:flex;gap:5px;align-items:center;}
+.td{width:6px;height:6px;background:var(--gold-dim);border-radius:50%;animation:tdot 1.2s infinite;}
+.td:nth-child(2){animation-delay:0.2s;}
+.td:nth-child(3){animation-delay:0.4s;}
+@keyframes tdot{0%,60%,100%{opacity:.3;transform:translateY(0);}30%{opacity:1;transform:translateY(-4px);}}
 
-.landing-btn {
-  width: 100%; padding: 13px;
-  background: var(--gold); border: none; border-radius: 8px;
-  color: #1a1200; font-size: 14px; font-weight: 600;
-  font-family: 'Inter', sans-serif; cursor: pointer; letter-spacing: 0.3px;
-  transition: opacity 0.15s, transform 0.1s; margin-bottom: 14px;
-}
-.landing-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.wbtn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 20px;background:var(--gold);border:none;border-radius:7px;color:#1a1200;font-size:12px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.3px;transition:opacity 0.15s;}
+.wbtn:hover{opacity:0.85;}
+.wbtn svg{width:14px;height:14px;fill:#1a1200;}
 
-.landing-note { font-size: 11px; color: #444; letter-spacing: 0.3px; }
+.ibar{flex-shrink:0;padding:10px 0 18px;display:none;}
+.iinner{display:flex;gap:8px;align-items:flex-end;background:#111;border:0.5px solid #2a2a2a;border-radius:10px;padding:4px 4px 4px 14px;transition:border-color 0.15s;}
+.iinner:focus-within{border-color:var(--gold-dim);box-shadow:0 0 0 1px rgba(201,168,76,0.07);}
+.cinput{flex:1;background:transparent;border:none;outline:none;color:var(--text-light);font-family:'Inter',sans-serif;font-size:13.5px;line-height:1.55;padding:9px 0;resize:none;max-height:140px;overflow-y:auto;}
+.cinput::placeholder{color:#333;}
+.sbtn{width:36px;height:36px;background:var(--gold);border:none;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.15s;align-self:flex-end;margin-bottom:2px;}
+.sbtn:hover{opacity:0.85;}
+.sbtn:disabled{background:#1e1e1e;cursor:not-allowed;}
+.sbtn:disabled svg{fill:#444;}
+.sbtn svg{width:15px;height:15px;fill:#1a1200;}
 
-/* ══ APP ══ */
-#app { display: none; position: fixed; inset: 0; flex-direction: column; background: var(--bg); }
-
-.app-header {
-  height: 64px; background: var(--header-bg);
-  border-bottom: 0.5px solid #1a1a1a;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 24px; flex-shrink: 0; z-index: 50;
-}
-.header-left { display: flex; align-items: center; gap: 14px; }
-.header-logo { height: 40px; object-fit: contain; }
-.header-divider { width: 0.5px; height: 24px; background: #2a2a2a; }
-.header-title { font-size: 13px; color: #555; font-weight: 400; letter-spacing: 0.3px; }
-.header-title span { color: var(--gold); font-weight: 500; }
-
-.phase-track { display: flex; align-items: center; gap: 6px; }
-.phase-label { font-size: 10px; color: #444; letter-spacing: 1px; text-transform: uppercase; margin-right: 4px; }
-.pdot { width: 28px; height: 4px; background: #1a1a1a; border-radius: 2px; transition: background 0.4s; }
-.pdot.active { background: var(--gold); box-shadow: 0 0 8px rgba(201,168,76,0.5); }
-.pdot.done { background: var(--gold-dim); }
-
-.app-body { flex: 1; display: flex; flex-direction: column; overflow: hidden; max-width: 860px; width: 100%; margin: 0 auto; padding: 0 24px; }
-
-.messages { flex: 1; overflow-y: auto; padding: 28px 0 20px; display: flex; flex-direction: column; gap: 4px; scroll-behavior: smooth; }
-.messages::-webkit-scrollbar { width: 3px; }
-.messages::-webkit-scrollbar-thumb { background: #2a2010; }
-
-.welcome-banner {
-  background: rgba(201,168,76,0.04); border: 0.5px solid rgba(201,168,76,0.18);
-  border-radius: 10px; padding: 22px 26px; margin-bottom: 20px;
-}
-.welcome-banner h2 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--gold-light); margin-bottom: 9px; }
-.welcome-banner p { font-size: 13px; color: #888; line-height: 1.7; }
-.welcome-banner p + p { margin-top: 5px; }
-.welcome-banner strong { color: #bbb; font-weight: 500; }
-
-.upload-section { display: flex; gap: 11px; margin-bottom: 11px; flex-wrap: wrap; }
-.upload-card {
-  flex: 1; min-width: 195px;
-  border: 0.5px dashed rgba(201,168,76,0.28); border-radius: 10px;
-  padding: 18px 18px 16px; cursor: pointer; position: relative;
-  background: rgba(201,168,76,0.02); transition: border-color 0.2s, background 0.2s;
-}
-.upload-card:hover { border-color: rgba(201,168,76,0.52); background: rgba(201,168,76,0.04); }
-.upload-card.done { border-color: rgba(45,106,56,0.55); border-style: solid; background: rgba(45,106,56,0.04); }
-.upload-card input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-.upload-icon { font-size: 19px; margin-bottom: 7px; }
-.upload-title { font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.3px; margin-bottom: 3px; text-transform: uppercase; }
-.upload-desc { font-size: 11px; color: #555; line-height: 1.5; }
-.upload-status { font-size: 11px; color: #444; margin-top: 7px; font-weight: 500; }
-.upload-card.done .upload-status { color: #4a9a5a; }
-
-.proceed-btn {
-  width: 100%; padding: 12px;
-  background: var(--gold); border: none; border-radius: 8px;
-  color: #1a1200; font-size: 13px; font-weight: 600;
-  font-family: 'Inter', sans-serif; cursor: pointer; letter-spacing: 0.3px;
-  transition: opacity 0.15s, transform 0.1s;
-  display: none; margin-bottom: 8px;
-}
-.proceed-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-.proceed-btn.show { display: block; }
-
-/* Messages */
-.msg-row { display: flex; gap: 10px; max-width: 100%; animation: msgIn 0.3s ease forwards; opacity: 0; }
-.msg-row.user { flex-direction: row-reverse; }
-@keyframes msgIn { from { opacity:0; transform:translateY(7px); } to { opacity:1; transform:translateY(0); } }
-
-.msg-ava {
-  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 9px; font-weight: 700; margin-top: 5px;
-}
-.msg-ava.ai { background: var(--gold); color: #1a1200; }
-.msg-ava.me { background: #1e1e1e; color: #777; border: 0.5px solid #2a2a2a; }
-
-.msg-bubble { max-width: calc(100% - 46px); padding: 11px 15px; font-size: 13.5px; line-height: 1.7; border-radius: 10px; }
-.msg-row.assistant .msg-bubble { background: #111; border: 0.5px solid #1e1e1e; color: var(--text-light); border-radius: 2px 10px 10px 10px; }
-.msg-row.user .msg-bubble { background: var(--gold-bg); border: 0.5px solid var(--gold-border); color: #ccc; border-radius: 10px 2px 10px 10px; }
-
-/* Markdown */
-.msg-bubble h1 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--gold-light); margin: 14px 0 5px; line-height: 1.3; }
-.msg-bubble h2 { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--gold); margin: 14px 0 5px; padding-bottom: 4px; border-bottom: 0.5px solid #2a2010; }
-.msg-bubble h3 { font-size: 12px; font-weight: 600; color: #bbb; margin: 11px 0 3px; text-transform: uppercase; letter-spacing: 0.5px; }
-.msg-bubble p { margin: 5px 0; }
-.msg-bubble strong { color: #e0e0e0; font-weight: 600; }
-.msg-bubble em { color: #888; font-style: italic; }
-.msg-bubble hr { border: none; border-top: 0.5px solid #222; margin: 12px 0; }
-.msg-bubble ul, .msg-bubble ol { padding-left: 16px; margin: 5px 0; }
-.msg-bubble li { margin: 3px 0; color: #bbb; }
-.msg-bubble blockquote { border-left: 2px solid var(--gold-dim); padding-left: 11px; margin: 9px 0; color: #777; font-style: italic; font-size: 13px; }
-.msg-bubble code { font-family: monospace; background: #1a1a1a; padding: 2px 5px; font-size: 12px; color: var(--gold); border-radius: 3px; }
-
-/* Typing */
-.typing-row { display: flex; gap: 10px; align-items: flex-start; }
-.typing-bubble { background: #111; border: 0.5px solid #1e1e1e; border-radius: 2px 10px 10px 10px; padding: 13px 16px; display: flex; gap: 5px; align-items: center; }
-.t-dot { width: 6px; height: 6px; background: var(--gold-dim); border-radius: 50%; animation: tdot 1.2s infinite; }
-.t-dot:nth-child(2) { animation-delay: 0.2s; }
-.t-dot:nth-child(3) { animation-delay: 0.4s; }
-@keyframes tdot { 0%,60%,100% { opacity:.3; transform:translateY(0); } 30% { opacity:1; transform:translateY(-4px); } }
-
-/* Input bar */
-.input-bar { flex-shrink: 0; padding: 10px 0 18px; display: none; }
-.input-inner {
-  display: flex; gap: 8px; align-items: flex-end;
-  background: #111; border: 0.5px solid #2a2a2a;
-  border-radius: 10px; padding: 4px 4px 4px 14px;
-  transition: border-color 0.15s;
-}
-.input-inner:focus-within { border-color: var(--gold-dim); box-shadow: 0 0 0 1px rgba(201,168,76,0.07); }
-.chat-input {
-  flex: 1; background: transparent; border: none; outline: none;
-  color: var(--text-light); font-family: 'Inter', sans-serif;
-  font-size: 13.5px; line-height: 1.55; padding: 9px 0;
-  resize: none; max-height: 140px; overflow-y: auto;
-}
-.chat-input::placeholder { color: #333; }
-.send-btn {
-  width: 36px; height: 36px; background: var(--gold); border: none; border-radius: 7px;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; transition: opacity 0.15s; align-self: flex-end; margin-bottom: 2px;
-}
-.send-btn:hover { opacity: 0.85; }
-.send-btn:disabled { background: #1e1e1e; cursor: not-allowed; }
-.send-btn:disabled svg { fill: #444; }
-.send-btn svg { width: 15px; height: 15px; fill: #1a1200; }
-
-@media (max-width: 600px) {
-  .app-header { padding: 0 14px; }
-  .app-body { padding: 0 12px; }
-  .header-title { display: none; }
-  .phase-label { display: none; }
-  .upload-section { flex-direction: column; }
-  .landing-box { width: calc(100% - 28px); padding: 38px 26px; }
+@media(max-width:600px){
+  .ah{padding:0 14px;}.ab{padding:0 12px;}
+  .atitle{display:none;}.ptl{display:none;}
+  .upsec{flex-direction:column;}
+  .lbox{width:calc(100% - 28px);padding:38px 26px;}
 }
 </style>
 </head>
 <body>
 
-<!-- LANDING -->
 <div id="landing">
-  <canvas id="landing-canvas"></canvas>
-  <div class="landing-box">
-    <img src="https://i.imgur.com/5WeN9KQ.png" alt="INDEI" class="landing-logo">
-    <h1 class="landing-headline">Construye <em>tu Sistema</em></h1>
-    <p class="landing-sub">Deja de competir por precio, calidad y tiempo de entrega. Crea tu <em>"Nueva Oportunidad"</em> y vuélvete único en la mente del ingeniero o comprador.</p>
-    <div class="landing-steps">
-      <div class="landing-step"><span class="step-n">1</span><span class="step-label">Sube tu Documento de Inputs y tu Avatar</span></div>
-      <div class="landing-step"><span class="step-n">2</span><span class="step-label">Confirmamos que entendimos tu negocio</span></div>
-      <div class="landing-step"><span class="step-n">3</span><span class="step-label">Definimos el nombre de tu sistema</span></div>
-      <div class="landing-step"><span class="step-n">4</span><span class="step-label">Recibes tu documento de Nueva Oportunidad</span></div>
+  <canvas id="lc"></canvas>
+  <div class="lbox">
+    <img src="https://i.imgur.com/5WeN9KQ.png" alt="INDEI" class="llogo">
+    <h1 class="lh1">Construye <em>tu Sistema</em></h1>
+    <p class="lsub">Deja de competir por precio, calidad y tiempo de entrega. Crea tu <em>"Nueva Oportunidad"</em> y v&uacute;elvete &uacute;nico en la mente del ingeniero o comprador.</p>
+    <div class="lsteps">
+      <div class="lstep"><span class="sn">1</span><span class="sl">Sube tu Documento de Inputs y tu Avatar</span></div>
+      <div class="lstep"><span class="sn">2</span><span class="sl">Confirmamos que entendimos tu negocio</span></div>
+      <div class="lstep"><span class="sn">3</span><span class="sl">Definimos el nombre de tu sistema</span></div>
+      <div class="lstep"><span class="sn">4</span><span class="sl">Recibes tu documento de Nueva Oportunidad</span></div>
     </div>
-    <button class="landing-btn" onclick="startApp()">Comenzar ahora →</button>
-    <p class="landing-note">Necesitas tu Documento de Inputs y tu Avatar listos para subir.</p>
+    <button class="lbtn" onclick="startApp()">Comenzar ahora &rarr;</button>
+    <p class="lnote">Necesitas tu Documento de Inputs y tu Avatar listos para subir.</p>
   </div>
 </div>
 
-<!-- APP -->
 <div id="app">
-  <div class="app-header">
-    <div class="header-left">
-      <img src="https://i.imgur.com/5WeN9KQ.png" alt="INDEI" class="header-logo">
-      <div class="header-divider"></div>
-      <span class="header-title">Nueva <span>Oportunidad</span></span>
+  <div class="ah">
+    <div class="ahl">
+      <img src="https://i.imgur.com/5WeN9KQ.png" alt="INDEI" class="alogo">
+      <div class="adiv"></div>
+      <span class="atitle">Nueva <span>Oportunidad</span></span>
     </div>
-    <div class="phase-track">
-      <span class="phase-label">Fase</span>
-      <div class="pdot active" id="pd1"></div>
-      <div class="pdot" id="pd2"></div>
-      <div class="pdot" id="pd3"></div>
-      <div class="pdot" id="pd4"></div>
+    <div class="ahr">
+      <button class="back-btn" id="reset-btn" onclick="resetApp()">
+        <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        Reiniciar
+      </button>
+      <div class="pt">
+        <span class="ptl">Fase</span>
+        <div class="pd active" id="pd1"></div>
+        <div class="pd" id="pd2"></div>
+        <div class="pd" id="pd3"></div>
+        <div class="pd" id="pd4"></div>
+      </div>
     </div>
   </div>
 
-  <div class="app-body">
-    <div class="messages" id="messages">
-      <div class="welcome-banner">
+  <div class="ab">
+    <div class="msgs" id="msgs">
+      <div class="wb">
         <h2>Bienvenido a tu proceso de Nueva Oportunidad</h2>
-        <p>Vamos a construir el sistema que te diferencia de forma real en tu mercado. El proceso tiene 4 fases y termina con un documento sólido: el ADN de tu diferenciación.</p>
+        <p>Vamos a construir el sistema que te diferencia de forma real en tu mercado. El proceso tiene 4 fases y termina con un documento s&oacute;lido: el ADN de tu diferenciaci&oacute;n.</p>
         <p>Para comenzar, sube tus dos documentos: el <strong>Documento de Inputs</strong> y tu <strong>Documento de Avatar</strong>. Ambos son indispensables.</p>
       </div>
-      <div id="upload-section">
-        <div class="upload-section">
-          <div class="upload-card" id="card-inputs">
-            <input type="file" id="file-inputs" accept=".pdf,.doc,.docx,.txt" onchange="onFile('inputs',this)">
-            <div class="upload-icon">📄</div>
-            <div class="upload-title">Documento de Inputs</div>
-            <div class="upload-desc">Tu cuestionario de Nueva Oportunidad completo</div>
-            <div class="upload-status" id="st-inputs">Sin archivo</div>
+      <div id="upsec">
+        <div class="upsec">
+          <div class="upcard" id="ci">
+            <input type="file" id="fi" accept=".docx,.txt,.pdf" onchange="onFile('inputs',this)">
+            <div class="upi">&#128196;</div>
+            <div class="upt">Documento de Inputs</div>
+            <div class="upd">Acepta .docx, .txt o .pdf</div>
+            <div class="ups" id="si">Sin archivo</div>
           </div>
-          <div class="upload-card" id="card-avatar">
-            <input type="file" id="file-avatar" accept=".pdf,.doc,.docx,.txt" onchange="onFile('avatar',this)">
-            <div class="upload-icon">👤</div>
-            <div class="upload-title">Documento de Avatar</div>
-            <div class="upload-desc">El perfil completo de tu cliente ideal</div>
-            <div class="upload-status" id="st-avatar">Sin archivo</div>
+          <div class="upcard" id="ca">
+            <input type="file" id="fa" accept=".docx,.txt,.pdf" onchange="onFile('avatar',this)">
+            <div class="upi">&#128100;</div>
+            <div class="upt">Documento de Avatar</div>
+            <div class="upd">Acepta .docx, .txt o .pdf</div>
+            <div class="ups" id="sa">Sin archivo</div>
           </div>
         </div>
-        <button class="proceed-btn" id="proceed-btn" onclick="analyze()">Analizar mis documentos →</button>
+        <button class="pbtn" id="pbtn" onclick="analyze()">Analizar mis documentos &rarr;</button>
       </div>
     </div>
-    <div class="input-bar" id="input-bar">
-      <div class="input-inner">
-        <textarea class="chat-input" id="user-input" placeholder="Escribe tu respuesta aquí..." rows="1" onkeydown="onKey(event)" oninput="resize(this)"></textarea>
-        <button class="send-btn" id="send-btn" onclick="send()">
+    <div class="sbar" id="sbar">
+      <div class="spinner"></div>
+      <span class="stxt" id="stxt">Analizando tus documentos...</span>
+    </div>
+    <div class="ibar" id="ibar">
+      <div class="iinner">
+        <textarea class="cinput" id="cinput" placeholder="Escribe tu respuesta aqui..." rows="1" onkeydown="onKey(event)" oninput="resize(this)"></textarea>
+        <button class="sbtn" id="sbtn" onclick="send()">
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
@@ -302,233 +212,200 @@ html, body { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
 </div>
 
 <script>
-// Canvas background
 (function(){
-  const c=document.getElementById('landing-canvas'), x=c.getContext('2d');
-  let W,H,P=[];
-  function init(){
-    W=c.width=window.innerWidth; H=c.height=window.innerHeight; P=[];
-    for(let i=0;i<50;i++) P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+0.3,dx:(Math.random()-.5)*.3,dy:(Math.random()-.5)*.3,o:Math.random()*.45+.08});
-  }
-  function draw(){
-    x.clearRect(0,0,W,H);
-    x.fillStyle='#f8f5ee'; x.fillRect(0,0,W,H);
-    const g=x.createRadialGradient(W*.5,H*.4,0,W*.5,H*.4,W*.55);
-    g.addColorStop(0,'rgba(201,168,76,0.055)'); g.addColorStop(1,'rgba(201,168,76,0)');
-    x.fillStyle=g; x.fillRect(0,0,W,H);
-    P.forEach(p=>{
-      x.beginPath(); x.arc(p.x,p.y,p.r,0,Math.PI*2);
-      x.fillStyle=`rgba(170,130,45,${p.o})`; x.fill();
-      p.x+=p.dx; p.y+=p.dy;
-      if(p.x<0||p.x>W) p.dx*=-1;
-      if(p.y<0||p.y>H) p.dy*=-1;
-    });
-    requestAnimationFrame(draw);
-  }
-  window.addEventListener('resize',init); init(); draw();
+  var cv=document.getElementById('lc'),x=cv.getContext('2d'),W,H,P=[];
+  function init(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;P=[];for(var i=0;i<50;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+0.3,dx:(Math.random()-.5)*.3,dy:(Math.random()-.5)*.3,o:Math.random()*.45+.08});}
+  function draw(){x.clearRect(0,0,W,H);x.fillStyle='#f8f5ee';x.fillRect(0,0,W,H);var g=x.createRadialGradient(W*.5,H*.4,0,W*.5,H*.4,W*.55);g.addColorStop(0,'rgba(201,168,76,0.055)');g.addColorStop(1,'rgba(201,168,76,0)');x.fillStyle=g;x.fillRect(0,0,W,H);P.forEach(function(p){x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle='rgba(170,130,45,'+p.o+')';x.fill();p.x+=p.dx;p.y+=p.dy;if(p.x<0||p.x>W)p.dx*=-1;if(p.y<0||p.y>H)p.dy*=-1;});requestAnimationFrame(draw);}
+  window.addEventListener('resize',init);init();draw();
 })();
 
-// State
-const S={phase:1,files:{inputs:null,avatar:null},contents:{inputs:'',avatar:''},history:[],busy:false};
+var S={phase:1,files:{inputs:null,avatar:null},contents:{inputs:'',avatar:''},history:[],busy:false,wordOffered:false};
 
-const SYSTEM=`Eres el Arquitecto de Nueva Oportunidad del INDEI (Instituto del Empresario Industrial). Tu misión es ayudar a empresarios industriales mexicanos — proveedores de la industria manufacturera — a construir su sistema de diferenciación real: su Nueva Oportunidad.
+var SYSTEM="Eres el Arquitecto de Nueva Oportunidad del INDEI (Instituto del Empresario Industrial). Tu mision es ayudar a empresarios industriales mexicanos a construir su sistema de diferenciacion real: su Nueva Oportunidad.\n\nEntiendes perfectamente el mundo en el que operan: todos sus competidores venden con las mismas herramientas (mejor precio, mejor calidad, mejor tiempo de entrega) y eso ya no diferencia a nadie. Tu trabajo es ayudarles a descubrir, nombrar y estructurar lo que ya hacen diferente para que dejen de ser un proveedor mas y se conviertan en la unica opcion logica para su cliente.\n\nTu tono es profesional y cercano al mismo tiempo. Hablas como un mentor experimentado: directo, sin rodeos, con respeto y calidez. No eres un robot corporativo. Genuinamente quieres que este empresario gane.\n\n## FLUJO DE TRABAJO: 4 FASES ESTRICTAS\n\n### FASE 1 - LECTURA Y CONFIRMACION\nPresenta un resumen ejecutivo con estos encabezados en negrita:\n\n**Lo que entiendo de tu negocio:** [empresa, giro, producto principal]\n**Tu proceso diferenciado:** [2-3 puntos clave diferenciables]\n**El problema real que resuelves:** [dolor humano y tecnico]\n**Tu circulo de 360:** [problemas antes y despues de su entrega]\n**Tu diferenciacion real:** [lo mas poderoso del Bloque 4]\n**Tu avatar:** [quien es, que le duele, que lo haria decir esto es lo que necesitaba]\n\nCierra con: '¿Esto refleja bien tu negocio y tu situacion? Si hay algo que corregir o agregar, dimelo antes de continuar.'\n\n### FASE 2 - PREGUNTAS DE CLARIFICACION\nSi hay informacion vaga o incompleta, haz maximo 4 preguntas especificas. Si todo esta claro, di: 'Tu informacion esta completa y clara. Vamos directo a construir tu sistema.'\n\n### FASE 3 - PROPUESTA DE NOMBRE\nPropone exactamente 3 opciones de nombre:\n\n**Opcion 1: [NOMBRE]**\n*Logica:* [por que funciona]\n*En la mente de tu avatar:* [que piensa y siente]\n\n**Opcion 2: [NOMBRE]**\n*Logica:* [...]\n*En la mente de tu avatar:* [...]\n\n**Opcion 3: [NOMBRE]**\n*Logica:* [...]\n*En la mente de tu avatar:* [...]\n\nCierra con: '¿Cual resuena mas contigo? Una vez que definamos el nombre, construyo tu documento final.'\n\n### FASE 4 - DOCUMENTO FINAL\nCon el nombre confirmado genera el documento:\n\n# SISTEMA [NOMBRE]\n### [Empresa] - Nueva Oportunidad\n\n---\n\n## 1. Por que existe este sistema\n[El problema del mercado desde la perspectiva del avatar. 2-3 parrafos con conviccion.]\n\n## 2. El problema real que resuelve\n\n**El problema tecnico:** [operativo concreto]\n**El problema humano:** [el miedo real]\n**Lo que cambia:** [como cambia el dia y la posicion del avatar]\n\n## 3. Como funciona el sistema\n[Componentes o etapas. Si es acronimo explica cada letra.]\n\n## 4. Por que es diferente\n[3-4 puntos concretos. PROHIBIDO lenguaje corporativo generico.]\n\n## 5. El valor que atesora tu avatar\n[Conectar con dolores y deseos profundos. Dimension emocional.]\n\n## 6. El circulo de 360\n**Antes de la entrega:** [problemas que previene]\n**Durante la entrega:** [lo que garantiza]\n**Despues de la entrega:** [como acompana mas alla del producto]\n\n## 7. En una sola frase\n[Una oracion poderosa para los primeros 10 segundos de una reunion.]\n\n---\n\nCierra con: 'Este es tu punto de partida. ¿Quieres afinar alguna seccion o ajustar el enfoque?'\n\n## REGLAS INAMOVIBLES\n1. Nunca generes el documento final sin nombre confirmado.\n2. Prohibido lenguaje corporativo generico.\n3. Todo desde el avatar.\n4. No inventes informacion.\n5. Tono: mentor cercano, profesional directo.";
 
-Entiendes perfectamente el mundo en el que operan estos empresarios: todos sus competidores venden con las mismas herramientas (mejor precio, mejor calidad, mejor tiempo de entrega) y eso ya no diferencia a nadie. Tu trabajo es ayudarles a descubrir, nombrar y estructurar lo que ya hacen diferente para que dejen de ser un proveedor más y se conviertan en la única opción lógica para su cliente.
+var STATUSES=['Leyendo tus documentos...','Analizando tu proceso y diferenciacion...','Identificando el problema real de tu avatar...','Mapeando el circulo de 360...','Construyendo el resumen de tu negocio...','Preparando preguntas de clarificacion...','Generando propuestas de nombre...','Redactando tu documento de Nueva Oportunidad...','Afinando los ultimos detalles...'];
 
-Tu tono es profesional y cercano al mismo tiempo. Hablas como un mentor experimentado que conoce el mundo industrial: directo, sin rodeos, con respeto, pero también con calidez. No eres un robot corporativo. Eres alguien que genuinamente quiere que este empresario gane.
-
-## FLUJO DE TRABAJO — 4 FASES ESTRICTAS
-
-### FASE 1 — LECTURA Y CONFIRMACIÓN
-Después de recibir ambos documentos, presenta un resumen ejecutivo estructurado así (usa exactamente estos encabezados en negrita):
-
-**Lo que entiendo de tu negocio:** [empresa, giro, producto o servicio principal]
-**Tu proceso diferenciado:** [2-3 puntos clave que identificas como diferenciables]
-**El problema real que resuelves:** [el dolor humano y técnico, no solo el técnico]
-**Tu círculo de 360°:** [problemas antes y después de su entrega que identificas]
-**Tu diferenciación real:** [lo más poderoso que encuentras en el Bloque 4]
-**Tu avatar:** [quién es, qué le duele profundamente, qué lo haría decir "esto es lo que necesitaba"]
-
-Cierra con: "¿Esto refleja bien tu negocio y tu situación? Si hay algo que corregir o agregar, dímelo antes de continuar."
-
-### FASE 2 — PREGUNTAS DE CLARIFICACIÓN
-Revisa si hay información vaga, incompleta o contradictoria. Si hay puntos a clarificar, haz máximo 4 preguntas específicas y directas. Si todo está claro, di: "Tu información está completa y clara. Vamos directo a construir tu sistema." y pasa a Fase 3.
-
-### FASE 3 — PROPUESTA DE NOMBRE
-Propón exactamente 3 opciones de nombre para el sistema. Usa este formato:
-
-**Opción 1: [NOMBRE]**
-*Lógica:* [por qué funciona para este empresario y su diferenciación]
-*En la mente de tu avatar:* [qué piensa y siente al escucharlo]
-
-**Opción 2: [NOMBRE]**
-*Lógica:* [por qué funciona]
-*En la mente de tu avatar:* [qué piensa y siente]
-
-**Opción 3: [NOMBRE]**
-*Lógica:* [por qué funciona]
-*En la mente de tu avatar:* [qué piensa y siente]
-
-Los nombres pueden ser acrónimos con el nombre de la empresa, nombres evocadores que creen categoría nueva, o combinaciones. Deben generar en el avatar la sensación de: "esto es diferente, esto es serio."
-
-Cierra con: "¿Cuál resuena más contigo? Una vez que definamos el nombre, construyo tu documento final."
-
-### FASE 4 — DOCUMENTO FINAL
-Con el nombre confirmado, genera el documento completo con este formato Markdown:
-
-# SISTEMA [NOMBRE]
-### [Empresa] — Nueva Oportunidad
-
----
-
-## 1. Por qué existe este sistema
-[El problema del mercado que llevó a crear el sistema, desde la perspectiva del avatar. 2-3 párrafos con convicción. No desde el producto, desde la realidad del cliente.]
-
-## 2. El problema real que resuelve
-
-**El problema técnico:** [operativo concreto: qué falla, qué para, qué cuesta]
-**El problema humano:** [el miedo real del avatar: quedar mal, que lo corran, que la línea pare]
-**Lo que cambia:** [cómo cambia el día, la certeza, la posición del avatar después del sistema]
-
-## 3. Cómo funciona el sistema
-[Componentes o etapas. Si es acrónimo explica cada letra. Si es nombre evocador describe sus pilares. Presentarlo como proceso propio y estructurado.]
-
-## 4. Por qué es diferente
-[3-4 puntos concretos y específicos. PROHIBIDO: "soluciones integrales", "comprometidos con la calidad", "servicio de excelencia". Solo hechos reales.]
-
-## 5. El valor que atesora tu avatar
-[Conectar con los dolores y deseos profundos del avatar. Incluir dimensión emocional: certeza, tranquilidad, posición ante su jefe, orgullo de la decisión tomada.]
-
-## 6. El círculo de 360°
-**Antes de la entrega:** [problemas que el sistema previene]
-**Durante la entrega:** [lo que garantiza]
-**Después de la entrega:** [cómo acompaña más allá del producto]
-
-## 7. En una sola frase
-[Una oración poderosa que capture la esencia. Algo que se pueda decir en los primeros 10 segundos de una reunión y genere curiosidad inmediata.]
-
----
-
-Cierra con: "*Este es tu punto de partida. ¿Quieres afinar alguna sección, profundizar en algún punto o ajustar el enfoque?*"
-
-## REGLAS INAMOVIBLES
-1. Nunca generes el documento final sin nombre confirmado.
-2. Prohibido lenguaje corporativo genérico en cualquier fase.
-3. Todo desde el avatar: cada sección debe hacerle sentido emocional y técnico.
-4. No inventes información. Si falta algo, pregunta.
-5. Tono siempre: mentor cercano, profesional directo. Nunca robótico.`;
-
-function startApp(){
-  document.getElementById('landing').style.display='none';
-  document.getElementById('app').style.display='flex';
-}
+function startApp(){document.getElementById('landing').style.display='none';document.getElementById('app').style.display='flex';}
 
 function onFile(type,input){
-  const file=input.files[0]; if(!file) return;
+  var file=input.files[0];if(!file)return;
   S.files[type]=file;
-  document.getElementById('card-'+type).classList.add('done');
-  document.getElementById('st-'+type).textContent='✓ '+file.name;
-  const r=new FileReader();
-  r.onload=e=>{
-    S.contents[type]=e.target.result;
-    if(S.files.inputs&&S.files.avatar) document.getElementById('proceed-btn').classList.add('show');
-  };
-  r.readAsText(file);
+  var card=document.getElementById(type==='inputs'?'ci':'ca');
+  var st=document.getElementById(type==='inputs'?'si':'sa');
+  card.classList.add('done');st.textContent='Procesando...';
+  var ext=file.name.split('.').pop().toLowerCase();
+  if(ext==='docx'){
+    var r=new FileReader();
+    r.onload=function(e){
+      mammoth.extractRawText({arrayBuffer:e.target.result}).then(function(res){
+        S.contents[type]=res.value;
+        st.textContent='Listo: '+file.name;
+        checkReady();
+      }).catch(function(){st.textContent='Error. Usa .txt';card.classList.remove('done');});
+    };
+    r.readAsArrayBuffer(file);
+  } else {
+    var r2=new FileReader();
+    r2.onload=function(e){S.contents[type]=e.target.result;st.textContent='Listo: '+file.name;checkReady();};
+    r2.readAsText(file);
+  }
 }
 
+function checkReady(){if(S.files.inputs&&S.files.avatar)document.getElementById('pbtn').classList.add('show');}
+
 async function analyze(){
-  document.getElementById('upload-section').style.display='none';
-  document.getElementById('input-bar').style.display='block';
-  addMsg('user','He subido mis dos documentos. Por favor procede con el análisis.');
-  await call(`Por favor analiza mis documentos e inicia el proceso.\n\n--- DOCUMENTO DE INPUTS ---\n${S.contents.inputs}\n\n--- DOCUMENTO DE AVATAR ---\n${S.contents.avatar}`);
+  document.getElementById('upsec').style.display='none';
+  document.getElementById('ibar').style.display='block';
+  document.getElementById('reset-btn').style.display='inline-flex';
+  addMsg('user','He subido mis dos documentos. Por favor procede con el analisis.');
+  await callAPI('Por favor analiza mis documentos e inicia el proceso.\n\n--- DOCUMENTO DE INPUTS ---\n'+S.contents.inputs+'\n\n--- DOCUMENTO DE AVATAR ---\n'+S.contents.avatar);
 }
 
 function addMsg(role,text){
-  const msgs=document.getElementById('messages');
-  const row=document.createElement('div'); row.className='msg-row '+role;
-  const ava=document.createElement('div'); ava.className='msg-ava '+(role==='assistant'?'ai':'me');
-  ava.textContent=role==='assistant'?'AI':'TÚ';
-  const bubble=document.createElement('div'); bubble.className='msg-bubble';
-  bubble.innerHTML=md(text);
-  if(role==='assistant'){row.appendChild(ava);row.appendChild(bubble);}
-  else{row.appendChild(bubble);row.appendChild(ava);}
-  msgs.appendChild(row); scrollDown();
+  var msgs=document.getElementById('msgs');
+  var row=document.createElement('div');row.className='mrow '+role;
+  var ava=document.createElement('div');ava.className='mava '+(role==='assistant'?'ai':'me');ava.textContent=role==='assistant'?'AI':'TU';
+  var bub=document.createElement('div');bub.className='mbub';bub.innerHTML=renderMd(text);
+  if(role==='assistant'){row.appendChild(ava);row.appendChild(bub);}else{row.appendChild(bub);row.appendChild(ava);}
+  msgs.appendChild(row);scrollDown();
 }
 
 function showTyping(){
-  const msgs=document.getElementById('messages');
-  const row=document.createElement('div'); row.className='typing-row'; row.id='typing';
-  const ava=document.createElement('div'); ava.className='msg-ava ai'; ava.textContent='AI';
-  const b=document.createElement('div'); b.className='typing-bubble';
-  b.innerHTML='<div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>';
-  row.appendChild(ava); row.appendChild(b); msgs.appendChild(row); scrollDown();
+  var msgs=document.getElementById('msgs');
+  var row=document.createElement('div');row.className='trow';row.id='typing';
+  var ava=document.createElement('div');ava.className='mava ai';ava.textContent='AI';
+  var bub=document.createElement('div');bub.className='tbub';bub.innerHTML='<div class="td"></div><div class="td"></div><div class="td"></div>';
+  row.appendChild(ava);row.appendChild(bub);msgs.appendChild(row);scrollDown();
 }
+function hideTyping(){var e=document.getElementById('typing');if(e)e.remove();}
+function scrollDown(){var m=document.getElementById('msgs');setTimeout(function(){m.scrollTop=m.scrollHeight;},60);}
+function showStatus(msg){document.getElementById('sbar').classList.add('show');document.getElementById('stxt').textContent=msg;}
+function hideStatus(){document.getElementById('sbar').classList.remove('show');}
+function cycleStatus(){var i=0;return setInterval(function(){i=(i+1)%STATUSES.length;document.getElementById('stxt').textContent=STATUSES[i];},4000);}
 
-function hideTyping(){ const e=document.getElementById('typing'); if(e) e.remove(); }
-function scrollDown(){ const m=document.getElementById('messages'); setTimeout(()=>{ m.scrollTop=m.scrollHeight; },60); }
-
-function md(t){
+function renderMd(t){
   return t
     .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
     .replace(/^# (.+)$/gm,'<h1>$1</h1>')
     .replace(/^## (.+)$/gm,'<h2>$1</h2>')
     .replace(/^### (.+)$/gm,'<h3>$1</h3>')
     .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g,'<em>$1</em>')
+    .replace(/\*([^*\n]+)\*/g,'<em>$1</em>')
     .replace(/^---$/gm,'<hr>')
     .replace(/^> (.+)$/gm,'<blockquote>$1</blockquote>')
     .replace(/`([^`]+)`/g,'<code>$1</code>')
-    .replace(/^[-•] (.+)$/gm,'<li>$1</li>')
-    .replace(/(<li>[\s\S]*?<\/li>\n?)+/g,'<ul>$&</ul>')
+    .replace(/^- (.+)$/gm,'<li>$1</li>')
     .replace(/\n\n+/g,'</p><p>')
     .replace(/\n/g,'<br>');
 }
 
 function send(){
-  const inp=document.getElementById('user-input');
-  const text=inp.value.trim(); if(!text||S.busy) return;
-  inp.value=''; resize(inp);
-  addMsg('user',text); call(text);
+  var inp=document.getElementById('cinput');
+  var text=inp.value.trim();if(!text||S.busy)return;
+  inp.value='';resize(inp);addMsg('user',text);callAPI(text);
 }
+function onKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+function resize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,140)+'px';}
 
-function onKey(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); send(); } }
-function resize(el){ el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,140)+'px'; }
-
-async function call(userMsg){
-  S.busy=true; document.getElementById('send-btn').disabled=true; showTyping();
+async function callAPI(userMsg){
+  S.busy=true;document.getElementById('sbtn').disabled=true;
+  showTyping();showStatus(STATUSES[0]);
+  var ticker=cycleStatus();
   S.history.push({role:'user',content:userMsg});
-  try {
-    const res=await fetch('/api/chat',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:4000,system:SYSTEM,messages:S.history})
-    });
-    const data=await res.json(); hideTyping();
-    if(data.content?.[0]?.text){
-      const reply=data.content[0].text;
+  try{
+    var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:4000,system:SYSTEM,messages:S.history})});
+    var data=await res.json();
+    clearInterval(ticker);hideTyping();hideStatus();
+    if(data.content&&data.content[0]&&data.content[0].text){
+      var reply=data.content[0].text;
       S.history.push({role:'assistant',content:reply});
-      addMsg('assistant',reply); updatePhase(reply);
+      addMsg('assistant',reply);updatePhase(reply);checkWordOffer(reply);
     } else {
       addMsg('assistant','Hubo un error al procesar tu solicitud. Por favor intenta de nuevo.');
     }
-  } catch(err){
-    hideTyping();
-    addMsg('assistant','No se pudo conectar. Verifica tu conexión e intenta de nuevo.');
+  } catch(err){clearInterval(ticker);hideTyping();hideStatus();addMsg('assistant','No se pudo conectar. Verifica tu conexion e intenta de nuevo.');}
+  S.busy=false;document.getElementById('sbtn').disabled=false;
+}
+
+function checkWordOffer(reply){
+  var r=reply.toLowerCase();
+  var isDoc=(r.indexOf('# sistema')>-1||r.indexOf('por que existe este sistema')>-1)&&r.indexOf('en una sola frase')>-1;
+  if(isDoc&&!S.wordOffered){
+    S.wordOffered=true;
+    setTimeout(function(){
+      var msgs=document.getElementById('msgs');
+      var row=document.createElement('div');row.className='mrow assistant';row.style.animation='none';row.style.opacity='1';
+      var ava=document.createElement('div');ava.className='mava ai';ava.textContent='AI';
+      var bub=document.createElement('div');bub.className='mbub';
+      bub.innerHTML='<p>&#191;Quieres que genere este documento en formato Word listo para descargar?</p><button class="wbtn" onclick="generateWord()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 17l2-6 2 6 2-6 2 6h-1.5l-1-3-.5-1.5-.5 1.5-1 3H8z"/></svg> S&#237;, generar Word</button>';
+      row.appendChild(ava);row.appendChild(bub);msgs.appendChild(row);scrollDown();
+    },800);
   }
-  S.busy=false; document.getElementById('send-btn').disabled=false;
+}
+
+async function generateWord(){
+  showStatus('Generando tu documento Word...');S.busy=true;document.getElementById('sbtn').disabled=true;
+  var prompt='Por favor genera el documento final completo en formato limpio y estructurado listo para Word. Incluye todas las secciones con el contenido completo que ya definimos. Usa encabezados ##, negritas y separadores ---. Que sea el documento final pulido.';
+  S.history.push({role:'user',content:prompt});
+  try{
+    var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:4000,system:SYSTEM,messages:S.history})});
+    var data=await res.json();hideStatus();
+    if(data.content&&data.content[0]&&data.content[0].text){var reply=data.content[0].text;S.history.push({role:'assistant',content:reply});exportToWord(reply);}
+  }catch(e){hideStatus();}
+  S.busy=false;document.getElementById('sbtn').disabled=false;
+}
+
+function exportToWord(markdown){
+  var lines=markdown.split('\n');
+  var nameLine='';
+  for(var k=0;k<lines.length;k++){if(lines[k].indexOf('# SISTEMA ')===0){nameLine=lines[k];break;}}
+  var systemName=nameLine?nameLine.replace('# SISTEMA ','').trim():'Nueva Oportunidad';
+  var body='';
+  for(var i=0;i<lines.length;i++){
+    var l=lines[i];
+    if(l.indexOf('# ')===0){body+='<h1 style="font-size:22pt;color:#1B3A6B;border-bottom:2px solid #C9A84C;padding-bottom:6pt;margin-top:24pt;font-family:Calibri,sans-serif">'+fi(l.slice(2))+'</h1>';}
+    else if(l.indexOf('## ')===0){body+='<h2 style="font-size:14pt;color:#C9A84C;margin-top:18pt;border-bottom:1px solid #e0d0a0;padding-bottom:3pt;font-family:Calibri,sans-serif">'+fi(l.slice(3))+'</h2>';}
+    else if(l.indexOf('### ')===0){body+='<h3 style="font-size:12pt;color:#1B3A6B;margin-top:12pt;font-family:Calibri,sans-serif">'+fi(l.slice(4))+'</h3>';}
+    else if(l==='---'){body+='<hr style="border:none;border-top:1px solid #ddd;margin:12pt 0">';}
+    else if(l.indexOf('- ')===0){body+='<li style="font-family:Calibri,sans-serif;font-size:11pt;margin:3pt 0;line-height:1.6">'+fi(l.slice(2))+'</li>';}
+    else if(l.trim()===''){body+='<br>';}
+    else{body+='<p style="font-family:Calibri,sans-serif;font-size:11pt;line-height:1.65;margin:5pt 0">'+fi(l)+'</p>';}
+  }
+  function fi(t){return t.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>');}
+  var html='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>'+systemName+'</title></head><body style="font-family:Calibri,sans-serif;font-size:11pt;color:#1a1a1a;margin:2cm">'+body+'</body></html>';
+  var blob=new Blob(['\uFEFF'+html],{type:'application/msword'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;
+  var safe=systemName.replace(/[^a-zA-Z0-9 ]/g,'').trim().replace(/ +/g,'_').substring(0,40)||'Nueva_Oportunidad';
+  a.download='Sistema_'+safe+'.doc';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+  addMsg('assistant','Tu documento Word se descargo automaticamente. Abrelo en Word y ya puedes editarlo o compartirlo. Si quieres ajustar algo del contenido, dimelo aqui.');
+}
+
+function resetApp(){
+  if(!confirm('Seguro que quieres reiniciar? Se perdera la conversacion actual.'))return;
+  S.phase=1;S.files={inputs:null,avatar:null};S.contents={inputs:'',avatar:''};S.history=[];S.busy=false;S.wordOffered=false;
+  var msgs=document.getElementById('msgs');msgs.innerHTML='';
+  var wb=document.createElement('div');wb.className='wb';
+  wb.innerHTML='<h2>Bienvenido a tu proceso de Nueva Oportunidad</h2><p>Vamos a construir el sistema que te diferencia de forma real en tu mercado. El proceso tiene 4 fases y termina con un documento s&oacute;lido: el ADN de tu diferenciaci&oacute;n.</p><p>Para comenzar, sube tus dos documentos: el <strong>Documento de Inputs</strong> y tu <strong>Documento de Avatar</strong>. Ambos son indispensables.</p>';
+  msgs.appendChild(wb);
+  var us=document.createElement('div');us.id='upsec';
+  us.innerHTML='<div class="upsec"><div class="upcard" id="ci"><input type="file" id="fi" accept=".docx,.txt,.pdf" onchange="onFile(\'inputs\',this)"><div class="upi">&#128196;</div><div class="upt">Documento de Inputs</div><div class="upd">Acepta .docx, .txt o .pdf</div><div class="ups" id="si">Sin archivo</div></div><div class="upcard" id="ca"><input type="file" id="fa" accept=".docx,.txt,.pdf" onchange="onFile(\'avatar\',this)"><div class="upi">&#128100;</div><div class="upt">Documento de Avatar</div><div class="upd">Acepta .docx, .txt o .pdf</div><div class="ups" id="sa">Sin archivo</div></div></div><button class="pbtn" id="pbtn" onclick="analyze()">Analizar mis documentos &rarr;</button>';
+  msgs.appendChild(us);
+  document.getElementById('ibar').style.display='none';
+  document.getElementById('reset-btn').style.display='none';
+  hideStatus();
+  for(var i=1;i<=4;i++){var d=document.getElementById('pd'+i);d.className='pd'+(i===1?' active':'');}
 }
 
 function updatePhase(msg){
-  const m=msg.toLowerCase(); let p=S.phase;
-  if(m.includes('¿esto refleja bien')) p=Math.max(p,1);
-  if(m.includes('información está completa')||m.includes('pregunta')) p=Math.max(p,2);
-  if(m.includes('opción 1:')&&m.includes('opción 2:')) p=Math.max(p,3);
-  if(m.includes('# sistema')||m.includes('por qué existe este sistema')) p=Math.max(p,4);
+  var m=msg.toLowerCase(),p=S.phase;
+  if(m.indexOf('refleja bien')>-1)p=Math.max(p,1);
+  if(m.indexOf('completa y clara')>-1)p=Math.max(p,2);
+  if(m.indexOf('opcion 1:')>-1&&m.indexOf('opcion 2:')>-1)p=Math.max(p,3);
+  if(m.indexOf('# sistema')>-1||m.indexOf('por que existe este sistema')>-1)p=Math.max(p,4);
   S.phase=p;
-  for(let i=1;i<=4;i++){
-    const d=document.getElementById('pd'+i);
-    d.className='pdot'+(i<p?' done':i===p?' active':'');
-  }
+  for(var i=1;i<=4;i++){var d=document.getElementById('pd'+i);d.className='pd'+(i<p?' done':i===p?' active':'');}
 }
 </script>
 </body>
