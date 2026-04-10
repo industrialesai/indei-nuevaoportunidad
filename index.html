@@ -8,10 +8,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:#8a6e2f;--gold-bg:#1e1a0e;--gold-border:#3a2a10;--bg:#060606;--header-bg:#100e08;--border-gold:rgba(201,168,76,0.25);--text-light:#e8e8e8;--text-muted:#888;}
+:root{--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:#8a6e2f;--gold-bg:#1e1a0e;--gold-border:#3a2a10;--bg:#060606;--header-bg:#100e08;--text-light:#e8e8e8;--text-muted:#888;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text-light);font-size:14px;overflow:hidden;}
-
 #landing{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:#f8f5ee;overflow:hidden;}
 #lc{position:absolute;inset:0;pointer-events:none;}
 .lbox{position:relative;z-index:2;width:460px;padding:50px 44px;background:#0a0a0a;border:1px solid rgba(201,168,76,0.3);border-radius:18px;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 0 0 1px rgba(201,168,76,0.10),0 0 30px 6px rgba(201,168,76,0.15),0 0 80px 20px rgba(201,168,76,0.08),0 32px 80px rgba(0,0,0,0.55);animation:boxIn 0.7s cubic-bezier(0.22,1,0.36,1) forwards;}
@@ -28,7 +27,6 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .lbtn{width:100%;padding:13px;background:var(--gold);border:none;border-radius:8px;color:#1a1200;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.3px;transition:opacity 0.15s,transform 0.1s;margin-bottom:14px;}
 .lbtn:hover{opacity:0.9;transform:translateY(-1px);}
 .lnote{font-size:11px;color:#444;letter-spacing:0.3px;}
-
 #app{display:none;position:fixed;inset:0;flex-direction:column;background:var(--bg);}
 .ah{height:64px;background:var(--header-bg);border-bottom:0.5px solid #1a1a1a;display:flex;align-items:center;justify-content:space-between;padding:0 24px;flex-shrink:0;z-index:50;}
 .ahl{display:flex;align-items:center;gap:14px;}
@@ -45,18 +43,15 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .back-btn{display:none;align-items:center;gap:6px;background:transparent;border:0.5px solid #333;color:#666;font-size:11px;font-family:'Inter',sans-serif;padding:6px 12px;border-radius:6px;cursor:pointer;transition:all 0.15s;letter-spacing:0.3px;}
 .back-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
 .back-btn svg{width:12px;height:12px;fill:currentColor;}
-
 .ab{flex:1;display:flex;flex-direction:column;overflow:hidden;max-width:860px;width:100%;margin:0 auto;padding:0 24px;}
 .msgs{flex:1;overflow-y:auto;padding:28px 0 20px;display:flex;flex-direction:column;gap:4px;scroll-behavior:smooth;}
 .msgs::-webkit-scrollbar{width:3px;}
 .msgs::-webkit-scrollbar-thumb{background:#2a2010;}
-
 .wb{background:rgba(201,168,76,0.04);border:0.5px solid rgba(201,168,76,0.18);border-radius:10px;padding:22px 26px;margin-bottom:20px;}
 .wb h2{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--gold-light);margin-bottom:9px;}
 .wb p{font-size:13px;color:#888;line-height:1.7;}
 .wb p+p{margin-top:5px;}
 .wb strong{color:#bbb;font-weight:500;}
-
 .upsec{display:flex;gap:11px;margin-bottom:11px;flex-wrap:wrap;}
 .upcard{flex:1;min-width:195px;border:0.5px dashed rgba(201,168,76,0.28);border-radius:10px;padding:18px 18px 16px;cursor:pointer;position:relative;background:rgba(201,168,76,0.02);transition:border-color 0.2s,background 0.2s;}
 .upcard:hover{border-color:rgba(201,168,76,0.52);background:rgba(201,168,76,0.04);}
@@ -70,13 +65,11 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .pbtn{width:100%;padding:12px;background:var(--gold);border:none;border-radius:8px;color:#1a1200;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.3px;transition:opacity 0.15s,transform 0.1s;display:none;margin-bottom:8px;}
 .pbtn:hover{opacity:0.9;transform:translateY(-1px);}
 .pbtn.show{display:block;}
-
 .sbar{display:none;align-items:center;gap:10px;padding:8px 0 4px;}
 .sbar.show{display:flex;}
 .spinner{width:14px;height:14px;border:2px solid #2a2010;border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;flex-shrink:0;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .stxt{font-size:12px;color:#666;font-style:italic;}
-
 .mrow{display:flex;gap:10px;max-width:100%;animation:mIn 0.3s ease forwards;opacity:0;}
 .mrow.user{flex-direction:row-reverse;}
 @keyframes mIn{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:translateY(0);}}
@@ -86,7 +79,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .mbub{max-width:calc(100% - 46px);padding:11px 15px;font-size:13.5px;line-height:1.7;border-radius:10px;}
 .mrow.assistant .mbub{background:#111;border:0.5px solid #1e1e1e;color:var(--text-light);border-radius:2px 10px 10px 10px;}
 .mrow.user .mbub{background:var(--gold-bg);border:0.5px solid var(--gold-border);color:#ccc;border-radius:10px 2px 10px 10px;}
-.mbub h1{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--gold-light);margin:14px 0 5px;line-height:1.3;}
+.mbub h1{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--gold-light);margin:14px 0 5px;}
 .mbub h2{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--gold);margin:14px 0 5px;padding-bottom:4px;border-bottom:0.5px solid #2a2010;}
 .mbub h3{font-size:12px;font-weight:600;color:#bbb;margin:11px 0 3px;text-transform:uppercase;letter-spacing:0.5px;}
 .mbub p{margin:5px 0;}
@@ -97,18 +90,15 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .mbub li{margin:3px 0;color:#bbb;}
 .mbub blockquote{border-left:2px solid var(--gold-dim);padding-left:11px;margin:9px 0;color:#777;font-style:italic;font-size:13px;}
 .mbub code{font-family:monospace;background:#1a1a1a;padding:2px 5px;font-size:12px;color:var(--gold);border-radius:3px;}
-
 .trow{display:flex;gap:10px;align-items:flex-start;}
 .tbub{background:#111;border:0.5px solid #1e1e1e;border-radius:2px 10px 10px 10px;padding:13px 16px;display:flex;gap:5px;align-items:center;}
 .td{width:6px;height:6px;background:var(--gold-dim);border-radius:50%;animation:tdot 1.2s infinite;}
 .td:nth-child(2){animation-delay:0.2s;}
 .td:nth-child(3){animation-delay:0.4s;}
 @keyframes tdot{0%,60%,100%{opacity:.3;transform:translateY(0);}30%{opacity:1;transform:translateY(-4px);}}
-
 .wbtn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 20px;background:var(--gold);border:none;border-radius:7px;color:#1a1200;font-size:12px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.3px;transition:opacity 0.15s;}
 .wbtn:hover{opacity:0.85;}
 .wbtn svg{width:14px;height:14px;fill:#1a1200;}
-
 .ibar{flex-shrink:0;padding:10px 0 18px;display:none;}
 .iinner{display:flex;gap:8px;align-items:flex-end;background:#111;border:0.5px solid #2a2a2a;border-radius:10px;padding:4px 4px 4px 14px;transition:border-color 0.15s;}
 .iinner:focus-within{border-color:var(--gold-dim);box-shadow:0 0 0 1px rgba(201,168,76,0.07);}
@@ -119,17 +109,10 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 .sbtn:disabled{background:#1e1e1e;cursor:not-allowed;}
 .sbtn:disabled svg{fill:#444;}
 .sbtn svg{width:15px;height:15px;fill:#1a1200;}
-
-@media(max-width:600px){
-  .ah{padding:0 14px;}.ab{padding:0 12px;}
-  .atitle{display:none;}.ptl{display:none;}
-  .upsec{flex-direction:column;}
-  .lbox{width:calc(100% - 28px);padding:38px 26px;}
-}
+@media(max-width:600px){.ah{padding:0 14px;}.ab{padding:0 12px;}.atitle{display:none;}.ptl{display:none;}.upsec{flex-direction:column;}.lbox{width:calc(100% - 28px);padding:38px 26px;}}
 </style>
 </head>
 <body>
-
 <div id="landing">
   <canvas id="lc"></canvas>
   <div class="lbox">
@@ -146,7 +129,6 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
     <p class="lnote">Necesitas tu Documento de Inputs y tu Avatar listos para subir.</p>
   </div>
 </div>
-
 <div id="app">
   <div class="ah">
     <div class="ahl">
@@ -168,7 +150,6 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
       </div>
     </div>
   </div>
-
   <div class="ab">
     <div class="msgs" id="msgs">
       <div class="wb">
@@ -178,39 +159,21 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
       </div>
       <div id="upsec">
         <div class="upsec">
-          <div class="upcard" id="ci">
-            <input type="file" id="fi" accept=".docx,.txt,.pdf" onchange="onFile('inputs',this)">
-            <div class="upi">&#128196;</div>
-            <div class="upt">Documento de Inputs</div>
-            <div class="upd">Acepta .docx, .txt o .pdf</div>
-            <div class="ups" id="si">Sin archivo</div>
-          </div>
-          <div class="upcard" id="ca">
-            <input type="file" id="fa" accept=".docx,.txt,.pdf" onchange="onFile('avatar',this)">
-            <div class="upi">&#128100;</div>
-            <div class="upt">Documento de Avatar</div>
-            <div class="upd">Acepta .docx, .txt o .pdf</div>
-            <div class="ups" id="sa">Sin archivo</div>
-          </div>
+          <div class="upcard" id="ci"><input type="file" id="fi" accept=".docx,.txt,.pdf" onchange="onFile('inputs',this)"><div class="upi">&#128196;</div><div class="upt">Documento de Inputs</div><div class="upd">Acepta .docx, .txt o .pdf</div><div class="ups" id="si">Sin archivo</div></div>
+          <div class="upcard" id="ca"><input type="file" id="fa" accept=".docx,.txt,.pdf" onchange="onFile('avatar',this)"><div class="upi">&#128100;</div><div class="upt">Documento de Avatar</div><div class="upd">Acepta .docx, .txt o .pdf</div><div class="ups" id="sa">Sin archivo</div></div>
         </div>
         <button class="pbtn" id="pbtn" onclick="analyze()">Analizar mis documentos &rarr;</button>
       </div>
     </div>
-    <div class="sbar" id="sbar">
-      <div class="spinner"></div>
-      <span class="stxt" id="stxt">Analizando tus documentos...</span>
-    </div>
+    <div class="sbar" id="sbar"><div class="spinner"></div><span class="stxt" id="stxt">Analizando...</span></div>
     <div class="ibar" id="ibar">
       <div class="iinner">
         <textarea class="cinput" id="cinput" placeholder="Escribe tu respuesta aqui..." rows="1" onkeydown="onKey(event)" oninput="resize(this)"></textarea>
-        <button class="sbtn" id="sbtn" onclick="send()">
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-        </button>
+        <button class="sbtn" id="sbtn" onclick="send()"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
       </div>
     </div>
   </div>
 </div>
-
 <script>
 (function(){
   var cv=document.getElementById('lc'),x=cv.getContext('2d'),W,H,P=[];
@@ -219,11 +182,11 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
   window.addEventListener('resize',init);init();draw();
 })();
 
-var S={phase:1,files:{inputs:null,avatar:null},contents:{inputs:'',avatar:''},history:[],busy:false,wordOffered:false};
+var S={phase:1,files:{inputs:null,avatar:null},contents:{inputs:'',avatar:''},history:[],busy:false};
 
-var SYSTEM="Eres el Arquitecto de Nueva Oportunidad del INDEI (Instituto del Empresario Industrial). Tu mision es ayudar a empresarios industriales mexicanos a construir su sistema de diferenciacion real: su Nueva Oportunidad.\n\nEntiendes perfectamente el mundo en el que operan: todos sus competidores venden con las mismas herramientas (mejor precio, mejor calidad, mejor tiempo de entrega) y eso ya no diferencia a nadie. Tu trabajo es ayudarles a descubrir, nombrar y estructurar lo que ya hacen diferente para que dejen de ser un proveedor mas y se conviertan en la unica opcion logica para su cliente.\n\nTu tono es profesional y cercano al mismo tiempo. Hablas como un mentor experimentado: directo, sin rodeos, con respeto y calidez. No eres un robot corporativo. Genuinamente quieres que este empresario gane.\n\n## FLUJO DE TRABAJO: 4 FASES ESTRICTAS\n\n### FASE 1 - LECTURA Y CONFIRMACION\nPresenta un resumen ejecutivo con estos encabezados en negrita:\n\n**Lo que entiendo de tu negocio:** [empresa, giro, producto principal]\n**Tu proceso diferenciado:** [2-3 puntos clave diferenciables]\n**El problema real que resuelves:** [dolor humano y tecnico]\n**Tu circulo de 360:** [problemas antes y despues de su entrega]\n**Tu diferenciacion real:** [lo mas poderoso del Bloque 4]\n**Tu avatar:** [quien es, que le duele, que lo haria decir esto es lo que necesitaba]\n\nCierra con: '¿Esto refleja bien tu negocio y tu situacion? Si hay algo que corregir o agregar, dimelo antes de continuar.'\n\n### FASE 2 - PREGUNTAS DE CLARIFICACION\nSi hay informacion vaga o incompleta, haz maximo 4 preguntas especificas. Si todo esta claro, di: 'Tu informacion esta completa y clara. Vamos directo a construir tu sistema.'\n\n### FASE 3 - PROPUESTA DE NOMBRE\nPropone exactamente 3 opciones de nombre:\n\n**Opcion 1: [NOMBRE]**\n*Logica:* [por que funciona]\n*En la mente de tu avatar:* [que piensa y siente]\n\n**Opcion 2: [NOMBRE]**\n*Logica:* [...]\n*En la mente de tu avatar:* [...]\n\n**Opcion 3: [NOMBRE]**\n*Logica:* [...]\n*En la mente de tu avatar:* [...]\n\nCierra con: '¿Cual resuena mas contigo? Una vez que definamos el nombre, construyo tu documento final.'\n\n### FASE 4 - DOCUMENTO FINAL\nCon el nombre confirmado genera el documento:\n\n# SISTEMA [NOMBRE]\n### [Empresa] - Nueva Oportunidad\n\n---\n\n## 1. Por que existe este sistema\n[El problema del mercado desde la perspectiva del avatar. 2-3 parrafos con conviccion.]\n\n## 2. El problema real que resuelve\n\n**El problema tecnico:** [operativo concreto]\n**El problema humano:** [el miedo real]\n**Lo que cambia:** [como cambia el dia y la posicion del avatar]\n\n## 3. Como funciona el sistema\n[Componentes o etapas. Si es acronimo explica cada letra.]\n\n## 4. Por que es diferente\n[3-4 puntos concretos. PROHIBIDO lenguaje corporativo generico.]\n\n## 5. El valor que atesora tu avatar\n[Conectar con dolores y deseos profundos. Dimension emocional.]\n\n## 6. El circulo de 360\n**Antes de la entrega:** [problemas que previene]\n**Durante la entrega:** [lo que garantiza]\n**Despues de la entrega:** [como acompana mas alla del producto]\n\n## 7. En una sola frase\n[Una oracion poderosa para los primeros 10 segundos de una reunion.]\n\n---\n\nCierra con: 'Este es tu punto de partida. ¿Quieres afinar alguna seccion o ajustar el enfoque?'\n\n## REGLAS INAMOVIBLES\n1. Nunca generes el documento final sin nombre confirmado.\n2. Prohibido lenguaje corporativo generico.\n3. Todo desde el avatar.\n4. No inventes informacion.\n5. Tono: mentor cercano, profesional directo.";
+var SYSTEM="Eres el Arquitecto de Nueva Oportunidad del INDEI (Instituto del Empresario Industrial). Tu mision es ayudar a empresarios industriales mexicanos a construir su sistema de diferenciacion real: su Nueva Oportunidad.\n\nEntiendes perfectamente el mundo en el que operan: todos sus competidores venden con las mismas herramientas (mejor precio, mejor calidad, mejor tiempo de entrega) y eso ya no diferencia a nadie. Tu trabajo es ayudarles a descubrir, nombrar y estructurar lo que ya hacen diferente para que dejen de ser un proveedor mas y se conviertan en la unica opcion logica para su cliente.\n\nTu tono es profesional y cercano al mismo tiempo. Hablas como un mentor experimentado: directo, sin rodeos, con respeto y calidez. No eres un robot corporativo. Genuinamente quieres que este empresario gane.\n\n## FLUJO DE TRABAJO: 4 FASES ESTRICTAS\n\n### FASE 1 - LECTURA Y CONFIRMACION\nPresenta un resumen ejecutivo con estos encabezados en negrita:\n\n**Lo que entiendo de tu negocio:** [empresa, giro, producto principal]\n**Tu proceso diferenciado:** [2-3 puntos clave diferenciables]\n**El problema real que resuelves:** [dolor humano y tecnico]\n**Tu circulo de 360:** [problemas antes y despues de su entrega]\n**Tu diferenciacion real:** [lo mas poderoso del Bloque 4]\n**Tu avatar:** [quien es, que le duele, que lo haria decir esto es lo que necesitaba]\n\nCierra con: '¿Esto refleja bien tu negocio y tu situacion? Si hay algo que corregir o agregar, dimelo antes de continuar.'\n\n### FASE 2 - PREGUNTAS DE CLARIFICACION\nSi hay informacion vaga o incompleta, haz maximo 4 preguntas especificas. Si todo esta claro, di: 'Tu informacion esta completa y clara. Vamos directo a construir tu sistema.'\n\n### FASE 3 - PROPUESTA DE NOMBRE\nPropone exactamente 3 opciones de nombre:\n\n**Opcion 1: [NOMBRE]**\n*Logica:* [por que funciona]\n*En la mente de tu avatar:* [que piensa y siente]\n\n**Opcion 2: [NOMBRE]**\n*Logica:* [...]\n*En la mente de tu avatar:* [...]\n\n**Opcion 3: [NOMBRE]**\n*Logica:* [...]\n*En la mente de tu avatar:* [...]\n\nCierra con: '¿Cual resuena mas contigo? Una vez que definamos el nombre, construyo tu documento.'\n\n### FASE 4a - VERSION BASE\nCon el nombre confirmado, genera una VERSION BASE concisa. Bien estructurada, 2-4 oraciones por seccion, sin relleno. El objetivo es que el empresario la lea rapido y decida que ajustar antes de la version extendida.\n\nFormato exacto:\n\n# SISTEMA [NOMBRE]\n### [Empresa] - Nueva Oportunidad\n\n---\n\n## 1. Por que existe este sistema\n[2-3 oraciones. Problema del mercado desde la perspectiva del avatar. Con conviccion.]\n\n## 2. El problema real que resuelve\n**El problema tecnico:** [1-2 oraciones. Operativo y concreto.]\n**El problema humano:** [1-2 oraciones. El miedo real del avatar.]\n**Lo que cambia:** [1-2 oraciones. Como cambia su dia y su posicion.]\n\n## 3. Como funciona el sistema\n[Si es acronimo, cada letra con 1 oracion. Si no, 3-4 puntos breves.]\n\n## 4. Por que es diferente\n[3 puntos concretos. Sin lenguaje corporativo.]\n\n## 5. El valor que atesora tu avatar\n[3-4 oraciones. Certeza, tranquilidad, posicion ante su jefe.]\n\n## 6. El circulo de 360\n**Antes:** [1-2 puntos] **Durante:** [1-2 puntos] **Despues:** [1-2 puntos]\n\n## 7. En una sola frase\n[La frase poderosa.]\n\n---\n\nAl terminar la version base cierra SIEMPRE con este texto exacto:\n'Esta es la base de tu sistema. Leela con calma. Si todo esta bien, dime y extiendo cada seccion al maximo detalle. Si quieres ajustar algo — un enfoque, una seccion, agregar o quitar algo — dime aqui antes de que genere la version completa.'\n\n### FASE 4b - VERSION EXTENDIDA\nSolo entra en esta fase cuando el empresario apruebe la base o pida ajustes que ya incorporaste. NUNCA generes la version extendida sin confirmacion del empresario.\n\nGenera la VERSION EXTENDIDA con cada seccion profunda y desarrollada:\n\n# SISTEMA [NOMBRE]\n### [Empresa] - Nueva Oportunidad\n\n---\n\n## 1. Por que existe este sistema\n[3-4 parrafos. Problema del mercado narrado con conviccion desde la realidad del avatar.]\n\n## 2. El problema real que resuelve\n**El problema tecnico:** [Parrafo completo con ejemplos concretos del sector.]\n**El problema humano:** [Parrafo completo. El miedo nombrado sin rodeos: quedar mal, que lo corran, que la linea pare.]\n**Lo que cambia:** [Parrafo completo. Como cambia el dia a dia, la certeza y la posicion del avatar.]\n\n## 3. Como funciona el sistema\n[Descripcion completa. Si es acronimo cada letra con su propio parrafo desarrollado. Si es nombre evocador cada pilar en profundidad.]\n\n## 4. Por que es diferente\n[4-5 puntos. Cada uno: afirmacion concreta + 2-3 oraciones que la justifican con hechos reales del negocio.]\n\n## 5. El valor que atesora tu avatar\n[2-3 parrafos. Certeza operativa, tranquilidad personal, autoridad profesional, orgullo de la decision tomada.]\n\n## 6. El circulo de 360\n**Antes de la entrega:** [Parrafo completo con problemas que el sistema previene.]\n**Durante la entrega:** [Parrafo completo con lo que garantiza.]\n**Despues de la entrega:** [Parrafo completo. Como acompana mas alla del producto cerrando el circulo.]\n\n## 7. En una sola frase\n[La oracion poderosa + 1-2 oraciones que explican por que resume todo.]\n\n---\n\nAl terminar la version extendida cierra con:\n'Esta es tu version completa. ¿Quieres que te la genere en Word para que puedas editarla y compartirla?'\n\n## REGLAS INAMOVIBLES\n1. Nunca generes el documento final sin nombre confirmado.\n2. Nunca generes la version extendida sin que el empresario apruebe la base.\n3. Prohibido lenguaje corporativo generico en cualquier fase.\n4. Todo desde el avatar: cada seccion debe hacerle sentido emocional y tecnico.\n5. No inventes informacion. Si falta algo, pregunta.\n6. Tono: mentor cercano, profesional directo. Nunca robotico.";
 
-var STATUSES=['Leyendo tus documentos...','Analizando tu proceso y diferenciacion...','Identificando el problema real de tu avatar...','Mapeando el circulo de 360...','Construyendo el resumen de tu negocio...','Preparando preguntas de clarificacion...','Generando propuestas de nombre...','Redactando tu documento de Nueva Oportunidad...','Afinando los ultimos detalles...'];
+var STATUSES=['Leyendo tus documentos...','Analizando tu proceso y diferenciacion...','Identificando el problema real de tu avatar...','Mapeando el circulo de 360...','Construyendo el resumen de tu negocio...','Preparando preguntas de clarificacion...','Generando propuestas de nombre...','Construyendo la version base de tu sistema...','Redactando la version extendida...','Afinando los ultimos detalles...'];
 
 function startApp(){document.getElementById('landing').style.display='none';document.getElementById('app').style.display='flex';}
 
@@ -238,9 +201,7 @@ function onFile(type,input){
     var r=new FileReader();
     r.onload=function(e){
       mammoth.extractRawText({arrayBuffer:e.target.result}).then(function(res){
-        S.contents[type]=res.value;
-        st.textContent='Listo: '+file.name;
-        checkReady();
+        S.contents[type]=res.value;st.textContent='Listo: '+file.name;checkReady();
       }).catch(function(){st.textContent='Error. Usa .txt';card.classList.remove('done');});
     };
     r.readAsArrayBuffer(file);
@@ -303,9 +264,8 @@ function send(){
   var inp=document.getElementById('cinput');
   var text=inp.value.trim();if(!text||S.busy)return;
   inp.value='';resize(inp);
-  // Detect word generation request
   var lower=text.toLowerCase();
-  if(lower.indexOf('generar word')>-1||lower.indexOf('dame el word')>-1||lower.indexOf('word')>-1&&(lower.indexOf('generar')>-1||lower.indexOf('descargar')>-1||lower.indexOf('exportar')>-1)){
+  if((lower.indexOf('word')>-1)&&(lower.indexOf('generar')>-1||lower.indexOf('dame')>-1||lower.indexOf('descargar')>-1||lower.indexOf('exportar')>-1||lower.indexOf('si')>-1)){
     addMsg('user',text);generateWord();return;
   }
   addMsg('user',text);callAPI(text);
@@ -327,7 +287,7 @@ async function callAPI(userMsg){
       S.history.push({role:'assistant',content:reply});
       addMsg('assistant',reply);updatePhase(reply);checkWordOffer(reply);
     } else {
-      addMsg('assistant','Hubo un error al procesar tu solicitud. Por favor intenta de nuevo.');
+      addMsg('assistant','Hubo un error. Por favor intenta de nuevo.');
     }
   } catch(err){clearInterval(ticker);hideTyping();hideStatus();addMsg('assistant','No se pudo conectar. Verifica tu conexion e intenta de nuevo.');}
   S.busy=false;document.getElementById('sbtn').disabled=false;
@@ -335,22 +295,22 @@ async function callAPI(userMsg){
 
 function checkWordOffer(reply){
   var r=reply.toLowerCase();
-  var isDoc=(r.indexOf('# sistema')>-1||r.indexOf('por que existe este sistema')>-1)&&r.indexOf('en una sola frase')>-1;
-  if(isDoc){
+  var isExtended=(r.indexOf('esta es tu version completa')>-1);
+  if(isExtended){
     setTimeout(function(){
       var msgs=document.getElementById('msgs');
       var row=document.createElement('div');row.className='mrow assistant';row.style.animation='none';row.style.opacity='1';
       var ava=document.createElement('div');ava.className='mava ai';ava.textContent='AI';
       var bub=document.createElement('div');bub.className='mbub';
-      bub.innerHTML='<p>&#191;Quieres que genere este documento en formato Word listo para descargar?</p><button class="wbtn" onclick="generateWord()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 17l2-6 2 6 2-6 2 6h-1.5l-1-3-.5-1.5-.5 1.5-1 3H8z"/></svg> S&#237;, generar Word</button>';
+      bub.innerHTML='<button class="wbtn" onclick="generateWord()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 17l2-6 2 6 2-6 2 6h-1.5l-1-3-.5-1.5-.5 1.5-1 3H8z"/></svg> Generar Word</button>';
       row.appendChild(ava);row.appendChild(bub);msgs.appendChild(row);scrollDown();
-    },800);
+    },600);
   }
 }
 
 async function generateWord(){
   showStatus('Generando tu documento Word...');S.busy=true;document.getElementById('sbtn').disabled=true;
-  var prompt='Por favor genera el documento final completo en formato limpio y estructurado listo para Word. Incluye todas las secciones con el contenido completo que ya definimos. Usa encabezados ##, negritas y separadores ---. Que sea el documento final pulido.';
+  var prompt='Por favor genera el documento final completo en formato limpio listo para Word. Incluye todas las secciones con el contenido completo que ya definimos. Usa encabezados ##, negritas y separadores ---. Documento final pulido y completo.';
   S.history.push({role:'user',content:prompt});
   try{
     var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:8000,system:SYSTEM,messages:S.history})});
@@ -362,8 +322,7 @@ async function generateWord(){
 
 function exportToWord(markdown){
   var lines=markdown.split('\n');
-  var nameLine='';
-  for(var k=0;k<lines.length;k++){if(lines[k].indexOf('# SISTEMA ')===0){nameLine=lines[k];break;}}
+  var nameLine='';for(var k=0;k<lines.length;k++){if(lines[k].indexOf('# SISTEMA ')===0){nameLine=lines[k];break;}}
   var systemName=nameLine?nameLine.replace('# SISTEMA ','').trim():'Nueva Oportunidad';
   var body='';
   for(var i=0;i<lines.length;i++){
@@ -384,18 +343,26 @@ function exportToWord(markdown){
   var safe=systemName.replace(/[^a-zA-Z0-9 ]/g,'').trim().replace(/ +/g,'_').substring(0,40)||'Nueva_Oportunidad';
   a.download='Sistema_'+safe+'.doc';
   document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
-  addMsg('assistant','Tu documento Word se descargo automaticamente. Abrelo en Word y ya puedes editarlo o compartirlo. Si quieres ajustar algo del contenido, dimelo aqui.');
+  addMsg('assistant','Tu documento Word se descargo. Abrelo en Word para editarlo y compartirlo. Si quieres ajustar algo del contenido, dimelo aqui.');
+}
+
+function buildUploadHTML(){
+  return '<div class="upsec">'
+    +'<div class="upcard" id="ci"><input type="file" id="fi" accept=".docx,.txt,.pdf" onchange="onFile(String.fromCharCode(105,110,112,117,116,115),this)"><div class="upi">&#128196;</div><div class="upt">Documento de Inputs</div><div class="upd">Acepta .docx, .txt o .pdf</div><div class="ups" id="si">Sin archivo</div></div>'
+    +'<div class="upcard" id="ca"><input type="file" id="fa" accept=".docx,.txt,.pdf" onchange="onFile(String.fromCharCode(97,118,97,116,97,114),this)"><div class="upi">&#128100;</div><div class="upt">Documento de Avatar</div><div class="upd">Acepta .docx, .txt o .pdf</div><div class="ups" id="sa">Sin archivo</div></div>'
+    +'</div>'
+    +'<button class="pbtn" id="pbtn" onclick="analyze()">Analizar mis documentos &#8594;</button>';
 }
 
 function resetApp(){
   if(!confirm('Seguro que quieres reiniciar? Se perdera la conversacion actual.'))return;
-  S.phase=1;S.files={inputs:null,avatar:null};S.contents={inputs:'',avatar:''};S.history=[];S.busy=false;S.wordOffered=false;
+  S.phase=1;S.files={inputs:null,avatar:null};S.contents={inputs:'',avatar:''};S.history=[];S.busy=false;
   var msgs=document.getElementById('msgs');msgs.innerHTML='';
   var wb=document.createElement('div');wb.className='wb';
   wb.innerHTML='<h2>Bienvenido a tu proceso de Nueva Oportunidad</h2><p>Vamos a construir el sistema que te diferencia de forma real en tu mercado. El proceso tiene 4 fases y termina con un documento s&oacute;lido: el ADN de tu diferenciaci&oacute;n.</p><p>Para comenzar, sube tus dos documentos: el <strong>Documento de Inputs</strong> y tu <strong>Documento de Avatar</strong>. Ambos son indispensables.</p>';
   msgs.appendChild(wb);
   var us=document.createElement('div');us.id='upsec';
-  us.innerHTML='<div class="upsec"><div class="upcard" id="ci"><input type="file" id="fi" accept=".docx,.txt,.pdf" onchange="onFile(\'inputs\',this)"><div class="upi">&#128196;</div><div class="upt">Documento de Inputs</div><div class="upd">Acepta .docx, .txt o .pdf</div><div class="ups" id="si">Sin archivo</div></div><div class="upcard" id="ca"><input type="file" id="fa" accept=".docx,.txt,.pdf" onchange="onFile(\'avatar\',this)"><div class="upi">&#128100;</div><div class="upt">Documento de Avatar</div><div class="upd">Acepta .docx, .txt o .pdf</div><div class="ups" id="sa">Sin archivo</div></div></div><button class="pbtn" id="pbtn" onclick="analyze()">Analizar mis documentos &rarr;</button>';
+  us.innerHTML=buildUploadHTML();
   msgs.appendChild(us);
   document.getElementById('ibar').style.display='none';
   document.getElementById('reset-btn').style.display='none';
@@ -408,7 +375,7 @@ function updatePhase(msg){
   if(m.indexOf('refleja bien')>-1)p=Math.max(p,1);
   if(m.indexOf('completa y clara')>-1)p=Math.max(p,2);
   if(m.indexOf('opcion 1:')>-1&&m.indexOf('opcion 2:')>-1)p=Math.max(p,3);
-  if(m.indexOf('# sistema')>-1||m.indexOf('por que existe este sistema')>-1)p=Math.max(p,4);
+  if(m.indexOf('esta es la base')>-1||m.indexOf('esta es tu version completa')>-1)p=Math.max(p,4);
   S.phase=p;
   for(var i=1;i<=4;i++){var d=document.getElementById('pd'+i);d.className='pd'+(i<p?' done':i===p?' active':'');}
 }
